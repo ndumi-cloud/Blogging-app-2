@@ -45,4 +45,9 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
+ .comment {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 5px;
+  }
   
