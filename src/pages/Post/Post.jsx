@@ -1,7 +1,23 @@
-import React from "react";
+import {useState} from "react";
 import "./Post.css";
 
 export default function Post({ title, category, description, image }) {
+
+  const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState ([]);
+  const [newComment, setNewComment] = useState ('')
+  const handleLike = () => {
+    setLikes(likes + 1);
+  };
+  const handleCommentChange = (e) => {
+    setNewComment(e.target.value);
+  };
+  const handleComment = () => {
+    if (newComment.trim() !== '') {
+      setComments([...comments, newComment]);
+      setNewComment('');
+    }
+  };
   return (
     <div className="post">
       <img src={image} alt="Post" className="postImg" />
