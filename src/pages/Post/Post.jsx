@@ -1,7 +1,26 @@
-import React from "react";
+/* eslint-disable no-undef */
+import { useState } from "react";
+// import React {useState} from "react";
 import "./Post.css";
 
+
 export default function Post({ title, category, description, image }) {
+
+  const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState ([]);
+  const [newComment, setNewComment] = useState ('')
+  const handleLike = () => {
+    setLikes(likes + 1);
+  };
+  const handleCommentChange = (e) => {
+    setNewComment(e.target.value);
+  };
+  const handleComment = () => {
+    if (newComment.trim() !== '') {
+      setComments([...comments, newComment]);
+      setNewComment('');
+    }
+  };
   return (
     <div className="post">
       <img src={image} alt="Post" className="postImg" />
@@ -21,7 +40,7 @@ export default function Post({ title, category, description, image }) {
         value={newComment}
         onChange={handleCommentChange} />
         <button className="comment-button"
-        onClick={handleComment}>Comment</button>
+       onClick={handleComment}>Comment</button>
         {comments.map((comment, index) => (<p key={index} className="comment"> {comment} </p>))}
       </div>
       <p className="postDesc">{description}</p>

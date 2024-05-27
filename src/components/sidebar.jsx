@@ -14,8 +14,7 @@ export default function sidebar() {
         alt=""
       />
       <p>
-        Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
-        amet ex esse.Sunt eu ut nostrud id quis proident.
+      Emma Thompson, an inspired writer and author, transforms ordinary experiences into extraordinary narratives. Growing up in the countryside, the serene landscapes fueled her imagination. With a pen in hand and a heart full of passion, Emma explores themes of love, resilience, and transformation. Her books resonate deeply with readers, leaving an indelible mark. Through her evocative prose, she continues to inspire aspiring writers worldwide.
       </p>
         </div>
         <div className='sidebarItem'>
