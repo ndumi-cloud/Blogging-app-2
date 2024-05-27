@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Blogging-app-2/static/css/main.f6a2c181.css",
+    "main.js": "/Blogging-app-2/static/js/main.607c87a9.js",
+    "static/media/tech.jpg": "/Blogging-app-2/static/media/tech.22b99ca95a40506a6437.jpg",
+    "static/media/pen-paper.jpg": "/Blogging-app-2/static/media/pen-paper.06388eace79f3f8b3910.jpg",
+    "static/media/style.jpg": "/Blogging-app-2/static/media/style.c2642d308badd15a37de.jpg",
+    "static/media/politics.jpg": "/Blogging-app-2/static/media/politics.7dbed29f966f3c94b085.jpg",
+    "static/media/travel.jpg": "/Blogging-app-2/static/media/travel.a57e629e0261aceaa6ff.jpg",
+    "static/media/life.jpg": "/Blogging-app-2/static/media/life.31dbfaac217f963633a0.jpg",
+    "static/media/music.jpg": "/Blogging-app-2/static/media/music.1b4755ef8ba4bf97bf02.jpg",
+    "static/media/sports.jpg": "/Blogging-app-2/static/media/sports.8476eac31b95dd9571bf.jpg",
+    "static/media/artist.jpg": "/Blogging-app-2/static/media/artist.dfb47cbb1348bbf223c3.jpg",
+    "static/media/sunrise.jpg": "/Blogging-app-2/static/media/sunrise.45fc612dbebf2e846be2.jpg",
+    "index.html": "/Blogging-app-2/index.html",
+    "main.f6a2c181.css.map": "/Blogging-app-2/static/css/main.f6a2c181.css.map",
+    "main.607c87a9.js.map": "/Blogging-app-2/static/js/main.607c87a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6a2c181.css",
+    "static/js/main.607c87a9.js"
+  ]
+}
