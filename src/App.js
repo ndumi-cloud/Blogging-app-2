@@ -13,7 +13,7 @@ function App() {
 
   return (       
     <div>
-      <BrowserRouter basename="/blog11">
+      <BrowserRouter basename="/Blogging-app-2">
         <TopBar setSearchQuery={setSearchQuery} />
         <Routes>
           <Route path="/" element={<Homepage searchQuery={searchQuery} />} />
