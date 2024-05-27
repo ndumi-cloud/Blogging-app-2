@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import '../header.css'
+import sunrise from '../../src/img/sunrise.jpg'
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
           <span className='headerTitleLg'>Blog</span>
       </div>
       <img className='headerImg'
-          src="../../public/img/sunrise.jpg"
+          src={sunrise}
           alt='' />
     </>
   )

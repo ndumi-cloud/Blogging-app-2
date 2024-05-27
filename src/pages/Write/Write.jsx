@@ -2,11 +2,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './write.css'
+import write from '../../img/pen-paper.jpg'
 
 export default function Write() {
   return (
     <div className='write'>
-        <img src='../../public/img/winter.jpg'  
+        <img src={write}
         alt=''
         className='writeImage'
         />

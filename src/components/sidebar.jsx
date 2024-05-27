@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import '../sidebar.css'
+import artist from '../../src/img/artist.jpg'
 
 
 export default function sidebar() {
@@ -9,7 +10,7 @@ export default function sidebar() {
     <div className="sidebarItem">
       <span className="sidebarTitle">ABOUT ME</span>
       <img
-        src="../../public/img/artist.jpg"
+        src={artist}
         alt=""
       />
       <p>
