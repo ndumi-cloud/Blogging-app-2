@@ -14,6 +14,15 @@ export default function Post({ title, category, description, image }) {
         </span>
         <hr />
         <span className="postDate">1 hour ago</span>
+         <button onClick={handleLike}>Like ({likes})</button>
+        <input className="comment-input"
+        type="text"
+        placeholder="Add a comment..."
+        value={newComment}
+        onChange={handleCommentChange} />
+        <button className="comment-button"
+        onClick={handleComment}>Comment</button>
+        {comments.map((comment, index) => (<p key={index} className="comment"> {comment} </p>))}
       </div>
       <p className="postDesc">{description}</p>
     </div>
