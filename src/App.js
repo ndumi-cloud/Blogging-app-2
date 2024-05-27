@@ -12,7 +12,7 @@ import Write from "./pages/Write/Write";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/blog11">
           <TopBar />
           <Routes>
             <Route path="/" element={<Homepage/>}/>
