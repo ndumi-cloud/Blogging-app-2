@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-import { useState } from "react";
-// import React {useState} from "react";
+import React, {useState} from "react";
 import "./Post.css";
 
 
