@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Posts.css";
 import Post from "../pages/Post/Post"
 import music from "../images/music.jpg";
