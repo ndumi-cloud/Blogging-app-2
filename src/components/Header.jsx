@@ -10,7 +10,7 @@ export default function Header() {
           <span className='headerTitleLg'>Blog</span>
       </div>
       <img className='headerImg'
-          src="./img/sunrise.jpg"
+          src="../../public/img/sunrise.jpg"
           alt='' />
     </>
   )

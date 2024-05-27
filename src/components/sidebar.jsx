@@ -2,13 +2,14 @@
 import React from 'react'
 import '../sidebar.css'
 
+
 export default function sidebar() {
   return (
     <div className="sidebar">
     <div className="sidebarItem">
       <span className="sidebarTitle">ABOUT ME</span>
       <img
-        src="../img/artist.jpg"
+        src="../../public/img/artist.jpg"
         alt=""
       />
       <p>

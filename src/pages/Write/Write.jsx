@@ -6,7 +6,7 @@ import './write.css'
 export default function Write() {
   return (
     <div className='write'>
-        <img src='../img/winter.jpg'
+        <img src='../../public/img/winter.jpg'  
         alt=''
         className='writeImage'
         />
@@ -27,3 +27,8 @@ export default function Write() {
     </div>
   )
 }
+
+
+
+
+
