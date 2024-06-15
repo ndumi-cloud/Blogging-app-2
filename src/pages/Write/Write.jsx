@@ -1,36 +1,21 @@
-import React, { useContext, useState } from "react";
-import axios from "../../axios";
+import { useContext, useState } from "react";
+import "./write.css";
+import axios from "axios";
 import { Context } from "../../context/Context";
-import { useNavigate } from 'react-router-dom';
-import { UpdateStart, UpdateSuccess, UpdateFailure } from '../../context/Actions'; // Assuming you have action creators for update
-
-import './write.css';
-import write from '../../img/pen-paper.jpg';
 
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
-  const { user, dispatch } = useContext(Context);
-  const navigate = useNavigate();
+  const { user, refreshPosts } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!user) {
-      console.error('User is not logged in');
-      // You can redirect to login page or handle as per your application's logic
-      return;
-    }
-
-    dispatch(UpdateStart()); // Set loading state for update
-
     const newPost = {
       username: user.username,
       title,
       desc,
     };
-
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -40,38 +25,53 @@ export default function Write() {
       try {
         await axios.post("/upload", data);
       } catch (err) {
-        console.error('Error uploading file:', err);
-        dispatch(UpdateFailure()); // Handle upload failure
-        return;
+        console.error("File upload failed", err);
       }
     }
-
     try {
-      const res = await axios.post('/posts', newPost);
-      dispatch(UpdateSuccess(res.data)); // Update user state after successful post
-      window.location.replace('/post/' + res.data._id)
-      // navigate(`/post/${res.data._id}`);
+      const res = await axios.post("/posts", newPost);
+      refreshPosts(); // Refresh posts list
+      window.location.replace("/post/" + res.data._id);
     } catch (err) {
-      console.error('Error creating post:', err);
-      dispatch(UpdateFailure()); // Handle post creation failure
+      console.error("Post creation failed", err);
     }
   };
 
   return (
-    <div className='write'>
+    <div className="write">
       {file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
-      <form className='writeform' onSubmit={handleSubmit}>
-        <div className='writeFormGroup'>
-          <label htmlFor='fileInput'>Choose File:</label>
-          <input type='file' id='fileInput' style={{ display: 'none' }} onChange={(e) => setFile(e.target.files[0])} />
-          <input type='text' placeholder='Title' className='writeInput' autoFocus={true} onChange={e => setTitle(e.target.value)} />
+      <form className="writeForm" onSubmit={handleSubmit}>
+        <div className="writeFormGroup">
+          <label htmlFor="fileInput">
+            <i className="writeIcon fas fa-plus"></i>
+          </label>
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: "none" }}
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+          <input
+            type="text"
+            placeholder="Title"
+            className="writeInput"
+            autoFocus={true}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
-        <div className='writeFormGroup'>
-          <textarea placeholder='Tell your story...' className='writeInput writeText' onChange={(e) => setDesc(e.target.value)} />
+        <div className="writeFormGroup">
+          <textarea
+            placeholder="Tell your story..."
+            type="text"
+            className="writeInput writeText"
+            onChange={(e) => setDesc(e.target.value)}
+          ></textarea>
         </div>
-        <button className='writePublish' type='submit'>Submit</button>
+        <button className="writeSubmit" type="submit">
+          Publish
+        </button>
       </form>
     </div>
   );

@@ -20,7 +20,7 @@ export default function Post({ post }) {
       setNewComment('');
     }
   };
-  const PF = "http://localhost:5000/images/";
+  const PF = "localhost:5000/images/";
   return (
     <div className="post">
    {post.photo && (
