@@ -1,12 +1,11 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../context/Context";
 import "./SinglePost.css";
 
-export default function SinglePost() {
+export default function SinglePost({ posts, setPosts }) {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
@@ -18,32 +17,43 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
-      setPost(res.data);
-      setTitle(res.data.title);
-      setDesc(res.data.desc);
+      try {
+        const res = await axios.get("/posts/" + path);
+        setPost(res.data);
+        setTitle(res.data.title);
+        setDesc(res.data.desc);
+      } catch (err) {
+        console.error(err);
+      }
     };
     getPost();
   }, [path]);
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, {
-        data: { username: user.username },
-      });
+      await axios.delete(`/posts/${post._id}`);
+      const updatedPosts = posts.filter((p) => p._id !== post._id);
+      setPosts(updatedPosts);
       window.location.replace("/");
-    } catch (err) {}
+    } catch (err) {
+      console.error("Failed to delete post", err);
+    }
   };
 
   const handleUpdate = async () => {
     try {
       await axios.put(`/posts/${post._id}`, {
-        username: user.username,
         title,
         desc,
       });
+      const updatedPosts = posts.map((p) =>
+        p._id === post._id ? { ...p, title, desc } : p
+      );
+      setPosts(updatedPosts);
       setUpdateMode(false);
-    } catch (err) {}
+    } catch (err) {
+      console.error("Failed to update post", err);
+    }
   };
 
   return (
@@ -62,7 +72,7 @@ export default function SinglePost() {
           />
         ) : (
           <h1 className="singlePostTitle">
-            {title}
+            {post.title}
             {post.username === user?.username && (
               <div className="singlePostEdit">
                 <i
@@ -95,7 +105,7 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          <p className="singlePostDesc">{post.desc}</p>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>

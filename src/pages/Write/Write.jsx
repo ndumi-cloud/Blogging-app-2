@@ -37,6 +37,10 @@ export default function Write() {
     }
   };
 
+  const handleFileUpload = () => {
+    document.getElementById('fileInput').click();
+  };
+
   return (
     <div className="write">
       {file && (
@@ -69,6 +73,9 @@ export default function Write() {
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
         </div>
+        <button type="button" onClick={handleFileUpload} className="uploadButton">
+          Upload Photo
+        </button>
         <button className="writeSubmit" type="submit">
           Publish
         </button>

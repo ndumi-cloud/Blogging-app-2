@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './home.css';
 import Header from '../../components/Header';
@@ -7,8 +7,12 @@ import Sidebar from '../../components/sidebar';
 import { Context } from "../../context/Context";
 
 export default function Homepage({ searchQuery }) {
-  const { posts } = useContext(Context);
+  const { posts, refreshPosts } = useContext(Context);
   const { search } = useLocation();
+
+  useEffect(() => {
+    refreshPosts();
+  }, [search]);
 
   return (
     <>
