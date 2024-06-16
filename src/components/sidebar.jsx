@@ -18,13 +18,10 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT ME</span>
-        <img
-          src={artist}
-          alt=""
-        />
+        <span className="sidebarTitle">ABOUT US</span>
+        
         <p>
-          Emma Thompson, an inspired writer and author, transforms ordinary experiences into extraordinary narratives. Growing up in the countryside, the serene landscapes fueled her imagination. With a pen in hand and a heart full of passion, Emma explores themes of love, resilience, and transformation. Her books resonate deeply with readers, leaving an indelible mark. Through her evocative prose, she continues to inspire aspiring writers worldwide.
+         Welcome to BeSocial. The #1 Social Blog App!
         </p>
       </div>
       <div className='sidebarItem'>

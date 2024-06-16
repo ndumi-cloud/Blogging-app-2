@@ -7,8 +7,8 @@ export default function Header() {
   return (
     <>
     <div className='headerTitles'>
-          <span className='headerTitleSm'>Welcome to our Blog App</span>
-          <span className='headerTitleLg'>Blog</span>
+          <span className='headerTitleSm'>Welcome to </span>
+          <span className='headerTitleLg'>BeSocial</span>
       </div>
       <img className='headerImg'
           src={sunrise}
