@@ -1,3 +1,4 @@
+
 .write{
     padding-top: 50px;
 }
@@ -40,7 +41,6 @@
     position: absolute;
     top: 60px;
     right: 50px;
-    color: white;
     background-color: teal;
     padding: 10px;
     border: none;
